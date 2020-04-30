@@ -52,7 +52,7 @@ class IAmTakingKuvanIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         slots = handler_input.request_envelope.request.intent.slots
-        userMedication = slots['userMedication']
+        userMedication = slots['userMedication'].value
 
         session_attributes = handler_input.session_attributes
         session_attributes.userMedication = userMedication
@@ -179,4 +179,6 @@ sb.add_request_handler(IntentReflectorHandler()) # make sure IntentReflectorHand
 
 sb.add_exception_handler(CatchAllExceptionHandler())
 
-lambda_handler = sb.lambda_handler()
+#lambda_handler = sb.lambda_handler()
+def handler(event, context):
+	return sb.lambda_handler()(event, context)
