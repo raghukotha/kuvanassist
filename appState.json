@@ -1,0 +1,107 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "07af8bf1-656e-4c4f-bdad-1ff01e7abd81": {
+        "id": "07af8bf1-656e-4c4f-bdad-1ff01e7abd81",
+        "parent": null,
+        "name": "KuvanAssist.py",
+        "type": "PYTHON_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "KuvanAssist.py",
+        "cursor": {
+          "lineNumber": 174,
+          "column": 51
+        },
+        "config": {
+          "runtime": "python3.8",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "name": "KuvanAssist"
+        },
+        "triggers": [
+          {
+            "resourceName": "alexaSK3719abfd1dc7467bb7b478bb17280c61",
+            "config": {}
+          }
+        ]
+      },
+      "5f11312d-020a-406d-817d-55b032ec6aff": {
+        "id": "5f11312d-020a-406d-817d-55b032ec6aff",
+        "parent": null,
+        "name": "prompts.py",
+        "type": "PYTHON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "prompts.py",
+        "cursor": {
+          "lineNumber": 6,
+          "column": 89
+        }
+      }
+    },
+    "openFiles": [
+      "07af8bf1-656e-4c4f-bdad-1ff01e7abd81",
+      "5f11312d-020a-406d-817d-55b032ec6aff"
+    ],
+    "currentFileId": "07af8bf1-656e-4c4f-bdad-1ff01e7abd81",
+    "resources": {
+      "alexaSK3719abfd1dc7467bb7b478bb17280c61": {
+        "name": "alexaSK3719abfd1dc7467bb7b478bb17280c61",
+        "type": "ALEXA",
+        "config": {
+          "type": 1,
+          "verifiedID": true,
+          "skillID": "amzn1.ask.skill.3719abfd-1dc7-467b-b7b4-78bb17280c61",
+          "applicationID": ""
+        }
+      }
+    },
+    "customTemplate": {
+      "overrideDefault": false,
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "ask_sdk_core": {
+          "name": "ask_sdk_core",
+          "version": "1.13.0",
+          "dev": false,
+          "language": "python"
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "KuvanAssist",
+    "projectDescription": "Kuvan Assist",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "language": "python",
+    "platformRegions": {},
+    "lastSave": 1588275053547
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "kuvanassist",
+      "url": "https://github.com/raghukotha/kuvanassist"
+    }
+  }
+}
