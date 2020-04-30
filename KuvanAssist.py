@@ -54,8 +54,8 @@ class IAmTakingKuvanIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         userMedication = slots['userMedication'].value
 
-        session_attributes = handler_input.session_attributes
-        session_attributes.userMedication = userMedication
+        session_attributes = handler_input.attributes_manager.session_attributes
+        session_attributes['userMedication'] = userMedication
         
         speak_output = f'You have added Medication {userMedication}. {prompts.KUVAN_YOU_WANT_METO_REMIND}'
 
