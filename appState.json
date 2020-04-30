@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "KuvanAssist.py",
         "cursor": {
-          "lineNumber": 56,
-          "column": 1
+          "lineNumber": 35,
+          "column": 13
         },
         "config": {
           "runtime": "python3.8",
@@ -95,7 +95,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1588278070721
+    "lastSave": 1588278593954
   },
   "VCS_STATE": {
     "provider": "GitHub",
