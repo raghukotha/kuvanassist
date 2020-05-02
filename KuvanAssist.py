@@ -16,14 +16,15 @@ from ask_sdk_model.services import ServiceException
 from ask_sdk_model.services.reminder_management import Trigger, TriggerType, AlertInfo, SpokenInfo, SpokenText, \
     PushNotification, PushNotificationStatus, ReminderRequest
 from ask_sdk_model import Response
+from ask_sdk_model import Response
 
 import prompts
-
-from ask_sdk_model import Response
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+REQUIRED_PERMISSIONS = ["alexa::alerts:reminders:skill:readwrite"]
+TIME_ZONE_ID = 'America/Chicago'
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""

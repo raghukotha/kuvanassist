@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "KuvanAssist.py",
         "cursor": {
-          "lineNumber": 92,
-          "column": 25
+          "lineNumber": 21,
+          "column": 15
         },
         "config": {
           "runtime": "python3.8",
@@ -39,8 +39,8 @@
         "isRemovable": true,
         "filePath": "prompts.py",
         "cursor": {
-          "lineNumber": 6,
-          "column": 88
+          "lineNumber": 7,
+          "column": 1
         }
       }
     },
@@ -94,7 +94,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1588454017589
+    "lastSave": 1588454464445
   },
   "VCS_STATE": {
     "provider": "GitHub",
