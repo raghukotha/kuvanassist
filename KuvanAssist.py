@@ -81,7 +81,7 @@ class CreateReminderIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         permissions = handler_input.request_envelope.context.system.user.permissions
-        if not(permissions and permissions.cosent_token):
+        if not(permissions and permissions.consent_token):
             logger.info("user hasn't granted reminder permissions")
             return \
                 handler_input.response_builder.speak("Please give permissions to set reminders using the alexa app.") \
