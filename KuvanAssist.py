@@ -20,6 +20,8 @@ from ask_sdk_model import Response
 
 import prompts
 
+sb = CustomSkillBuilder(api_client=DefaultApiClient())  # required to use remiders
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -230,7 +232,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 # defined are included below. The order matters - they're processed top to bottom.
 
 
-sb = SkillBuilder()
+#sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(IAmTakingKuvanIntentHandler())
