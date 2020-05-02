@@ -17,10 +17,11 @@ from ask_sdk_model.services.reminder_management import Trigger, TriggerType, Ale
     PushNotification, PushNotificationStatus, ReminderRequest
 from ask_sdk_model import Response
 from ask_sdk_model import Response
+from ask_sdk_core.skill_builder import CustomSkillBuilder
+from ask_sdk_core.api_client import DefaultApiClient
+
 
 import prompts
-
-sb = CustomSkillBuilder(api_client=DefaultApiClient())  # required to use remiders
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -231,7 +232,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 # payloads to the handlers above. Make sure any new handlers or interceptors you've
 # defined are included below. The order matters - they're processed top to bottom.
 
-
+sb = CustomSkillBuilder(api_client=DefaultApiClient())  # required to use remiders
 #sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
