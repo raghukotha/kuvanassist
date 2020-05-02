@@ -11,7 +11,11 @@ from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
 from ask_sdk_core.handler_input import HandlerInput
-from ask_sdk_model.ui import SimpleCard
+from ask_sdk_model.ui import SimpleCard, AskForPermissionsConsentCard
+from ask_sdk_model.services import ServiceException
+from ask_sdk_model.services.reminder_management import Trigger, TriggerType, AlertInfo, SpokenInfo, SpokenText, \
+    PushNotification, PushNotificationStatus, ReminderRequest
+from ask_sdk_model import Response
 
 import prompts
 
@@ -85,14 +89,14 @@ class CreateReminderIntentHandler(AbstractRequestHandler):
 
         #Get the slot data
         slots = handler_input.request_envelope.request.intent.slots
-        userMedication = slots['userMedication'].value
-        medicineDosage = slots['medicineDosage']
-        medicineFrequency = slots['medicineFrequency']
-        medicineTime = slots['medicineTime']
+        # userMedication = slots['userMedication'].value
+        medicineDosage = slots['medicineDosage'].value
+        medicineFrequency = slots['medicineFrequency'].value
+        medicineTime = slots['medicineTime'].value
 
         #set the session attributes
         session_attributes = handler_input.attributes_manager.session_attributes
-        session_attributes['userMedication'] = userMedication
+        # session_attributes['userMedication'] = userMedication
         session_attributes['medicineDosage'] = medicineDosage
         session_attributes['medicineFrequency'] = medicineFrequency
         session_attributes['medicineTime'] = medicineTime
