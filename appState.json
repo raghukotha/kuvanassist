@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "KuvanAssist.py",
         "cursor": {
-          "lineNumber": 74,
-          "column": 62
+          "lineNumber": 232,
+          "column": 54
         },
         "config": {
           "runtime": "python3.8",
