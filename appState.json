@@ -11,7 +11,7 @@
         "isRemovable": true,
         "filePath": "KuvanAssist.py",
         "cursor": {
-          "lineNumber": 58,
+          "lineNumber": 74,
           "column": 62
         },
         "config": {
@@ -48,7 +48,7 @@
       "07af8bf1-656e-4c4f-bdad-1ff01e7abd81",
       "5f11312d-020a-406d-817d-55b032ec6aff"
     ],
-    "currentFileId": "5f11312d-020a-406d-817d-55b032ec6aff",
+    "currentFileId": "07af8bf1-656e-4c4f-bdad-1ff01e7abd81",
     "resources": {
       "alexaSK3719abfd1dc7467bb7b478bb17280c61": {
         "name": "alexaSK3719abfd1dc7467bb7b478bb17280c61",
@@ -62,8 +62,7 @@
       }
     },
     "customTemplate": {
-      "overrideDefault": false,
-      "dialect": null,
+      "dialect": "CloudFormation",
       "definitions": null
     },
     "envVariables": [
@@ -95,7 +94,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1588289826234
+    "lastSave": 1588381657487
   },
   "VCS_STATE": {
     "provider": "GitHub",

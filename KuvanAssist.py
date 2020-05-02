@@ -67,6 +67,63 @@ class IAmTakingKuvanIntentHandler(AbstractRequestHandler):
                 .response
         )
 
+class CreateReminderIntentHandler(AbstractRequestHandler):
+    """Handler for IAmTakingKuvan messge."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("CreateReminderIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        permissions = handler_input.request_envelope.context.system.user.permissions
+        if not(permissions and permissions.cosent_token):
+            logger.info("user hasn't granted reminder permissions")
+            return \
+                handler_input.response_builder.speak("Please give permissions to set reminders using the alexa app.") \
+                .set_card(AskForPermissionsConsentCard(permissions=REQUIRED_PERMISSIONS)) \
+                .response
+
+        #Get the slot data
+        slots = handler_input.request_envelope.request.intent.slots
+        userMedication = slots['userMedication'].value
+        medicineDosage = slots['medicineDosage']
+        medicineFrequency = slots['medicineFrequency']
+        medicineTime = slots['medicineTime']
+
+        #set the session attributes
+        session_attributes = handler_input.attributes_manager.session_attributes
+        session_attributes['userMedication'] = userMedication
+        session_attributes['medicineDosage'] = medicineDosage
+        session_attributes['medicineFrequency'] = medicineFrequency
+        session_attributes['medicineTime'] = medicineTime
+
+        reminder_service = handler_input.service_client_factory.get_reminder_management_service()
+        try:
+            now = datetime.datetime.now(pytz.timezone(TIME_ZONE_ID))
+            #scheduled_time="2020-02-13T03:00:00.000"
+            notification_time = datetime.datetime.today()
+            times = [int(t) for t in medicineTime.split(':')]
+            notification_time = notification_time.replace(hour=times[0], minute=times[1]).strftime("%Y-%m-%dT%H:%M:%S")
+            
+            trigger = Trigger(object_type=TriggerType.SCHEDULED_ABSOLUTE , scheduled_time=notification_time, time_zone_id=TIME_ZONE_ID, recurrence=Recurrence(freq=RecurrenceFreq.DAILY))
+            text = SpokenText(locale='en-US', ssml='<speak>This is your reminder for Kuvan</speak>', text='This is your reminder for Kuvan')  
+            alert_info = AlertInfo(SpokenInfo([text]))  
+            push_notification = PushNotification(PushNotificationStatus.ENABLED)  
+            reminder_request = ReminderRequest(notification_time, trigger, alert_info, push_notification)
+        except ServiceException as e:
+            logger.info("Exception encountered while creating Reminder: {}".format(e.body))
+            speech_text = "Uh Oh. Looks like something went wrong."
+            return handler_input.response_builder.speak(speech_text).set_card(
+                SimpleCard("Error while creating reminder.",str(e.body))).response
+
+        speak_output = f'We have created {medicineFrequency} reminder at {medicineTime} for Kuvan'
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .set_card(SimpleCard('Kuvan Reminder', speak_output))
+                # .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .response
+        )
 
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
