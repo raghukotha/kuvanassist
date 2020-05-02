@@ -16,7 +16,7 @@ from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model.ui import SimpleCard, AskForPermissionsConsentCard
 from ask_sdk_model.services import ServiceException
 from ask_sdk_model.services.reminder_management import Trigger, TriggerType, AlertInfo, SpokenInfo, SpokenText, \
-    PushNotification, PushNotificationStatus, ReminderRequest
+    PushNotification, PushNotificationStatus, ReminderRequest, Recurrence
 from ask_sdk_model import Response
 from ask_sdk_model import Response
 from ask_sdk_core.skill_builder import CustomSkillBuilder
